@@ -1,0 +1,382 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   ALTERSTAR / ANB Enterprises — auto electrical components, Bawana, Delhi
+   Light industrial. Photography-led, quietly premium. Brand blue #1472fa.
+   ========================================================================== */
+
+@theme {
+  /* Surfaces */
+  --color-paper: #ffffff;
+  --color-mist: #f6f7f9;
+  --color-mist-dark: #eceef2;
+
+  /* Ink */
+  --color-ink: #0d1219;
+  --color-ink-soft: #39424f;
+  --color-ink-mute: #67717f;
+  --color-ink-faint: #949daa;
+
+  /* Rules and fills */
+  --color-rule: #dcdfe5;
+  --color-rule-soft: #e9ebef;
+  --color-fill: #f8f9fb;
+
+  /* Steel — used for photo overlays so white text stays legible */
+  --color-steel-700: #1b2430;
+  --color-steel-800: #131a24;
+  --color-steel-900: #0b1017;
+
+  /* Brand */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dbe7ff;
+  --color-brand-200: #bcd3ff;
+  --color-brand-500: #1472fa;
+  --color-brand-600: #0f5ad4;
+  --color-brand-700: #0c47a8;
+  --color-brand-900: #0a2f6b;
+
+  /* Status */
+  --color-ok-50: #edf8f0;
+  --color-ok-600: #15803d;
+  --color-ok-700: #116232;
+  --color-warn-50: #fdf4e7;
+  --color-warn-600: #b45309;
+  --color-warn-700: #8a3f06;
+
+  /* Elevation. Soft, layered, low-opacity — reads as depth rather than drop shadow. */
+  --shadow-e1: 0 1px 2px rgba(13, 18, 25, 0.04), 0 1px 1px rgba(13, 18, 25, 0.03);
+  --shadow-e2: 0 2px 4px rgba(13, 18, 25, 0.04), 0 4px 12px rgba(13, 18, 25, 0.05);
+  --shadow-e3: 0 2px 6px rgba(13, 18, 25, 0.04), 0 10px 28px rgba(13, 18, 25, 0.07);
+  --shadow-e4: 0 4px 12px rgba(13, 18, 25, 0.05), 0 24px 56px rgba(13, 18, 25, 0.11);
+  --shadow-brand: 0 2px 8px rgba(20, 114, 250, 0.22), 0 8px 24px rgba(20, 114, 250, 0.16);
+  --shadow-inset-hair: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  /* Type */
+  --font-sans: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink-soft);
+    background-color: var(--color-paper);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.021em;
+    text-wrap: balance;
+  }
+
+  /* Specs, part numbers and quantities must line up in columns. */
+  table, .tnum { font-variant-numeric: tabular-nums; }
+
+  ::selection { background: #1472fa; color: #fff; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  img, svg, video, canvas { max-width: 100%; height: auto; }
+}
+
+@layer components {
+  .wrap { @apply max-w-6xl mx-auto px-5 sm:px-6 lg:px-8; }
+  .wrap-wide { @apply max-w-7xl mx-auto px-5 sm:px-6 lg:px-8; }
+
+  /* Fluid display sizes — scale with the viewport instead of snapping at breakpoints. */
+  .display-xl { font-size: clamp(2.15rem, 1.35rem + 3.4vw, 3.9rem); line-height: 1.05; letter-spacing: -0.028em; }
+  .display-lg { font-size: clamp(1.75rem, 1.2rem + 2.1vw, 2.85rem); line-height: 1.1; letter-spacing: -0.024em; }
+  .display-md { font-size: clamp(1.35rem, 1.05rem + 1.1vw, 1.85rem); line-height: 1.18; letter-spacing: -0.018em; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold text-[0.94rem]
+           px-5 py-2.5 rounded-[6px] border transition-all duration-150
+           whitespace-nowrap cursor-pointer select-none;
+  }
+  .btn svg { @apply w-4 h-4 shrink-0; }
+  .btn:disabled { @apply opacity-55 cursor-not-allowed; }
+  .btn:active:not(:disabled) { transform: translateY(1px); }
+
+  .btn-primary {
+    @apply bg-brand-500 text-white border-brand-500 shadow-brand;
+  }
+  .btn-primary:hover { @apply bg-brand-600 border-brand-600; }
+  .btn-primary svg { @apply transition-transform duration-150; }
+  .btn-primary:hover svg { transform: translateX(2px); }
+
+  .btn-dark {
+    @apply bg-ink text-white border-ink shadow-e2;
+  }
+  .btn-dark:hover { @apply bg-black border-black; }
+
+  .btn-ghost {
+    @apply bg-white text-ink border-rule shadow-e1;
+  }
+  .btn-ghost:hover { @apply border-ink-faint bg-fill; }
+
+  /* On a photo, a light button needs its own contrast treatment. */
+  .btn-onphoto {
+    @apply bg-white/10 text-white border-white/35 backdrop-blur-md;
+  }
+  .btn-onphoto:hover { @apply bg-white/20 border-white/60; }
+
+  .btn-lg { @apply px-6 py-3 text-[1rem]; }
+  .btn-sm { @apply px-3.5 py-1.5 text-[0.85rem]; }
+  .btn-block { @apply w-full; }
+
+  /* ---------- Section heading ---------- */
+  .eyebrow {
+    @apply font-mono text-[0.7rem] font-medium uppercase tracking-[0.14em] text-brand-600;
+  }
+  .eyebrow-rule {
+    @apply block h-px w-9 bg-brand-500 mt-2.5;
+  }
+  .eyebrow-light { @apply text-brand-200; }
+  .eyebrow-light + .eyebrow-rule, .eyebrow-rule-light { @apply bg-brand-200; }
+
+  /* ---------- Surfaces ---------- */
+  .panel {
+    @apply bg-white border border-rule rounded-[8px];
+  }
+  .panel-lift {
+    @apply bg-white border border-rule rounded-[10px] shadow-e2
+           transition-[box-shadow,transform,border-color] duration-300;
+  }
+  .panel-lift:hover {
+    @apply shadow-e3 border-rule;
+    transform: translateY(-2px);
+  }
+  .panel-flat { @apply bg-mist border-y border-rule; }
+
+  /* ---------- Photography ---------- */
+
+  /* Framed photo. The hairline keeps light images from floating on white. */
+  .photo {
+    @apply block overflow-hidden rounded-[10px] bg-mist
+           border border-rule shadow-e1;
+  }
+  .photo img {
+    @apply w-full h-full object-cover
+           transition-transform duration-[600ms] ease-[cubic-bezier(0.2,0.7,0.3,1)];
+  }
+  /* Only zoom when the frame is a link or is otherwise interactive. */
+  .photo-hover:hover img { transform: scale(1.045); }
+
+  .photo-portrait { @apply aspect-[3/4]; }
+  .photo-landscape { @apply aspect-[4/3]; }
+  .photo-wide { @apply aspect-[16/9]; }
+  .photo-square { @apply aspect-square; }
+
+  /* Caption sits under the frame in a muted mono face. */
+  .photo-cap {
+    @apply mt-2.5 font-mono text-[0.7rem] uppercase tracking-[0.09em] text-ink-faint;
+  }
+  /* Honesty note for stock photography, so it is never read as our own premises. */
+  .photo-credit {
+    @apply mt-2 font-mono text-[0.66rem] uppercase tracking-[0.08em] text-ink-faint/85;
+  }
+
+  /* Full-bleed photo band with a legibility scrim. */
+  .band {
+    @apply relative isolate overflow-hidden bg-steel-900;
+  }
+  .band img {
+    @apply absolute inset-0 w-full h-full object-cover -z-10;
+  }
+  .band-scrim {
+    @apply absolute inset-0 -z-10;
+    background: linear-gradient(
+      100deg,
+      rgba(11, 16, 23, 0.9) 0%,
+      rgba(11, 16, 23, 0.78) 42%,
+      rgba(11, 16, 23, 0.42) 100%
+    );
+  }
+  .band-scrim-soft {
+    @apply absolute inset-0 -z-10;
+    background: linear-gradient(
+      to top,
+      rgba(11, 16, 23, 0.86) 0%,
+      rgba(11, 16, 23, 0.45) 55%,
+      rgba(11, 16, 23, 0.3) 100%
+    );
+  }
+
+  /* ---------- Tables ---------- */
+  .tbl { @apply w-full border-collapse text-[0.9rem]; }
+  .tbl th {
+    @apply text-left font-mono text-[0.68rem] font-medium uppercase tracking-[0.1em]
+           text-ink-mute bg-mist px-4 py-3 border-b border-rule whitespace-nowrap;
+  }
+  .tbl td {
+    @apply px-4 py-3 border-b border-rule-soft text-ink-soft align-top;
+  }
+  .tbl tbody tr:last-child td { @apply border-b-0; }
+  .tbl tbody tr { @apply transition-colors duration-150; }
+  .tbl tbody tr:hover { @apply bg-mist; }
+  .tbl .row-key { @apply font-medium text-ink; }
+
+  /* ---------- Reflowing reference tables ----------
+     A three-column reference table on a 360px phone has two bad options: squash
+     the columns until they are unreadable, or push the content sideways into a
+     horizontal scroll that nobody discovers. Below `sm` these tables break into
+     one card per row instead. The first cell becomes the card heading and every
+     other cell picks up its column name from data-label, so no information is
+     lost and nothing scrolls sideways. The DOM stays a single real <table>, so
+     it is still announced correctly and there is no duplicated markup. */
+  @media (max-width: 639px) {
+    .tbl-stack,
+    .tbl-stack tbody,
+    .tbl-stack tr,
+    .tbl-stack td { display: block; width: 100%; }
+    .tbl-stack thead { display: none; }
+    .tbl-stack tr {
+      @apply border border-rule rounded-lg bg-white px-4 py-1 mb-2.5 shadow-e1;
+    }
+    .tbl-stack tr:last-child { @apply mb-0; }
+    .tbl-stack tbody tr:hover { @apply bg-white; }
+    .tbl-stack td {
+      @apply border-b-0 px-0 py-2 text-[0.9rem];
+    }
+    .tbl-stack td + td { @apply border-t border-rule-soft; }
+    .tbl-stack td::before {
+      content: attr(data-label);
+      @apply block font-mono text-[0.63rem] uppercase tracking-[0.09em]
+             text-ink-faint mb-1;
+    }
+    /* First cell heads the card, so it gets no generated label. */
+    .tbl-stack td:first-child {
+      @apply text-[1rem] font-semibold leading-snug text-ink pt-3 pb-2.5;
+    }
+    .tbl-stack td:first-child::before { content: none; }
+    /* The old row divider now belongs between stacked cells, not between rows. */
+    .tbl-stack tr + tr { @apply mt-0; }
+  }
+
+  /*
+    No min-width override is needed above `sm`: the element always carries .tbl
+    as well, which already provides the full table styling. That also means this
+    is a pure enhancement — Tailwind compiles the query to `(width<=639px)`
+    range syntax, which Safari below 16.4 will not parse. A browser that skips
+    the block falls back to an ordinary .tbl table inside the overflow-x-auto
+    wrapper, which is readable, just not stacked. Deliberately degrade, never
+    break. */
+
+  /* ---------- Tags ---------- */
+  .tag {
+    @apply inline-flex items-center gap-1.5 font-mono text-[0.7rem] font-medium uppercase
+           tracking-[0.08em] px-2 py-[3px] rounded-[3px] bg-mist text-ink-soft
+           border border-rule;
+  }
+  .tag-brand { @apply bg-brand-50 text-brand-700 border-brand-200; }
+  .tag-ok { @apply bg-ok-50 text-ok-700 border-[#c3e3cd]; }
+  .tag-warn { @apply bg-warn-50 text-warn-700 border-[#f0dcbc]; }
+
+  /* ---------- Nav ---------- */
+  .nav-link {
+    @apply relative text-ink-soft font-medium text-[0.93rem] px-3 py-2
+           rounded-[5px] transition-colors duration-150;
+  }
+  .nav-link:hover { @apply text-ink bg-mist; }
+  .nav-link[aria-current="page"] { @apply text-brand-600; }
+  .nav-link[aria-current="page"]::after {
+    content: "";
+    @apply absolute left-3 right-3 -bottom-px h-[2px] bg-brand-500 rounded-full;
+  }
+
+  /* ---------- Forms ---------- */
+  .label {
+    @apply block font-mono text-[0.68rem] font-medium uppercase tracking-[0.11em]
+           text-ink-mute mb-1.5;
+  }
+  .input {
+    @apply w-full bg-white border border-rule rounded-[6px] px-3.5 py-2.5
+           text-ink text-[0.925rem] font-sans transition-all duration-150
+           shadow-e1;
+  }
+  .input::placeholder { @apply text-ink-faint; }
+  .input:hover { @apply border-ink-faint; }
+  .input:focus {
+    @apply outline-none border-brand-500;
+    box-shadow: 0 0 0 3px rgba(20, 114, 250, 0.13), var(--shadow-e1);
+  }
+  select.input {
+    @apply appearance-none bg-no-repeat pr-9;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%2367717f' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: right 0.85rem center;
+  }
+
+  /* ---------- Accordion ---------- */
+  .acc-item { @apply border-b border-rule last:border-b-0; }
+  .acc-head {
+    @apply w-full flex items-start justify-between gap-5 text-left py-4
+           text-ink font-medium text-[1rem] transition-colors;
+  }
+  .acc-head:hover { @apply text-brand-600; }
+  .acc-icon {
+    @apply shrink-0 w-6 h-6 grid place-items-center mt-0.5 text-ink-faint
+           transition-transform duration-200;
+  }
+  .acc-item[data-open="true"] .acc-icon { @apply rotate-45 text-brand-600; }
+  .acc-body { @apply pb-4 pr-10 text-[0.95rem] leading-relaxed text-ink-soft; }
+
+  /* ---------- Misc ---------- */
+  .rule-list > li {
+    @apply relative pl-5 text-ink-soft leading-relaxed;
+  }
+  .rule-list > li::before {
+    content: "";
+    @apply absolute left-0 top-[0.66em] w-1.5 h-1.5 rounded-full bg-brand-500;
+  }
+
+  .step-line {
+    @apply absolute left-[15px] top-9 bottom-0 w-px bg-rule md:left-1/2;
+  }
+
+  .kpi-cell { @apply flex items-baseline justify-between gap-4 py-2.5; }
+
+  /* ---------- In-page topic nav ---------- */
+  .subnav { @apply sticky top-[73px] z-30 bg-white/92 backdrop-blur-md border-b border-rule; }
+  .subnav .inner { @apply flex gap-1 overflow-x-auto py-2; }
+  .subnav .link {
+    @apply shrink-0 px-3 py-1.5 rounded-[5px] text-[0.85rem] font-medium
+           text-ink-mute transition-colors whitespace-nowrap;
+  }
+  .subnav .link:hover { @apply text-ink bg-mist; }
+  .subnav .link[data-active="true"] { @apply text-brand-600 bg-brand-50; }
+
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .photo img, .photo-lift:hover { transform: none !important; }
+}

@@ -1,0 +1,114 @@
+﻿[
+    {
+        "file":  "hero-engine.jpg",
+        "id":  190574,
+        "url":  "https://www.pexels.com/photo/190574/",
+        "by":  "Mike Bird",
+        "desc":  "Greyscale close-up of a polished car engine, gears and metal",
+        "status":  "OK"
+    },
+    {
+        "file":  "starter-motor.jpg",
+        "id":  3822938,
+        "url":  "https://www.pexels.com/photo/3822938/",
+        "by":  "Andrea Piacquadio",
+        "desc":  "Metal motor unit on a workshop workbench",
+        "status":  "OK"
+    },
+    {
+        "file":  "solenoid-valve.jpg",
+        "id":  5503819,
+        "url":  "https://www.pexels.com/photo/5503819/",
+        "by":  "Mike van Schoonderwalt",
+        "desc":  "Close-up of metal valves",
+        "status":  "OK"
+    },
+    {
+        "file":  "qc-micrometer.jpg",
+        "id":  36003973,
+        "url":  "https://www.pexels.com/photo/36003973/",
+        "by":  "Pexels",
+        "desc":  "Digital micrometer measuring metal sheet thickness",
+        "status":  "OK"
+    },
+    {
+        "file":  "qc-measuring.jpg",
+        "id":  38051238,
+        "url":  "https://www.pexels.com/photo/38051238/",
+        "by":  "Pexels",
+        "desc":  "Mechanic measuring a metal component with a digital caliper",
+        "status":  "OK"
+    },
+    {
+        "file":  "workshop-mechanic.jpg",
+        "id":  8985519,
+        "url":  "https://www.pexels.com/photo/8985519/",
+        "by":  "Artem Podrez",
+        "desc":  "Mechanic with gloves working on a car engine in a workshop",
+        "status":  "OK"
+    },
+    {
+        "file":  "workshop-lathe.jpg",
+        "id":  19004429,
+        "url":  "https://www.pexels.com/photo/19004429/",
+        "by":  "Pexels",
+        "desc":  "Worker operating a lathe for metalworking",
+        "status":  "OK"
+    },
+    {
+        "file":  "metal-parts.jpg",
+        "id":  17891974,
+        "url":  "https://www.pexels.com/photo/17891974/",
+        "by":  "More Amore",
+        "desc":  "Metal parts laid out on a table",
+        "status":  "OK"
+    },
+    {
+        "file":  "gears-detail.jpg",
+        "id":  31501021,
+        "url":  "https://www.pexels.com/photo/31501021/",
+        "by":  "Sylwester Ficek",
+        "desc":  "Close-up of gears and timing belts",
+        "status":  "OK"
+    },
+    {
+        "file":  "dispatch-truck.jpg",
+        "id":  29786116,
+        "url":  "https://www.pexels.com/photo/29786116/",
+        "by":  "Pexels",
+        "desc":  "Delivery truck leaving a warehouse loading dock with pallets",
+        "status":  "OK"
+    },
+    {
+        "file":  "warehouse.jpg",
+        "id":  4483608,
+        "url":  "https://www.pexels.com/photo/4483608/",
+        "by":  "Pexels",
+        "desc":  "Modern warehouse interior with shelves and pallets",
+        "status":  "OK"
+    },
+    {
+        "file":  "industrial-yard.jpg",
+        "id":  36003983,
+        "url":  "https://www.pexels.com/photo/36003983/",
+        "by":  "Pexels",
+        "desc":  "Industrial warehouse exterior with stacked metal beams",
+        "status":  "OK"
+    },
+    {
+        "file":  "engine-bay.jpg",
+        "id":  15684925,
+        "url":  "https://www.pexels.com/photo/15684925/",
+        "by":  "Frederick Adegoke Snr.",
+        "desc":  "Under the hood of a car, belts and components",
+        "status":  "OK"
+    },
+    {
+        "file":  "spindle.jpg",
+        "id":  31741227,
+        "url":  "https://www.pexels.com/photo/31741227/",
+        "by":  "Andre",
+        "desc":  "Industrial steel spindle in a factory",
+        "status":  "OK"
+    }
+]
