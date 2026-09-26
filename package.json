@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:subpath": "cross-env VITE_BASE=/ANB/ vite",
     "build": "vite build",
+    "build:subpath": "cross-env VITE_BASE=/ANB/ vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -21,6 +23,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
+    "cross-env": "^10.1.0",
     "oxlint": "^1.81.0",
     "vite": "^8.3.0"
   }
