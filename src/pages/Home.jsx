@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import Seo from "../components/Seo";
 import Reveal from "../components/Reveal";
+import Rise from "../components/Rise";
 import SectionHead from "../components/SectionHead";
 import CTABand from "../components/CTABand";
 import Photo from "../components/Photo";
@@ -22,8 +22,6 @@ import {
   WHATSAPP_TEXT_DEFAULT,
 } from "../data/site";
 
-const ease = [0.16, 1, 0.3, 1];
-
 const FACTS = [
   { k: "GSTIN", v: SITE.gstin },
   { k: "GST active since", v: SITE.gstRegistered },
@@ -36,41 +34,28 @@ function Hero() {
     <section className="border-b border-rule bg-gradient-to-b from-fill to-paper">
       <div className="wrap-wide grid gap-12 py-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-16 lg:py-20">
         <div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease }}
-          >
+          <Rise y={10} duration={0.5}>
             <span className="eyebrow">Manufacturer / Wholesaler / Exporter</span>
             <span className="eyebrow-rule" />
-          </motion.div>
+          </Rise>
 
-          <motion.h1
-            className="display-xl mt-6"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.06, ease }}
-          >
+          <Rise as="h1" className="display-xl mt-6" y={14} delay={0.06} duration={0.55}>
             Starter motors, solenoids, armatures and wipers
-          </motion.h1>
+          </Rise>
 
-          <motion.p
+          <Rise
+            as="p"
             className="mt-6 text-[1.1rem] leading-relaxed text-ink-soft max-w-xl"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.12, ease }}
+            y={14}
+            delay={0.12}
+            duration={0.55}
           >
             Made at N-31, DSIIDC Industrial Area, Bawana, Delhi. Send us an OEM
             part number and we will confirm fitment, MOQ, lead time and freight
             to you in writing.
-          </motion.p>
+          </Rise>
 
-          <motion.div
-            className="mt-8 flex flex-wrap gap-3"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.18, ease }}
-          >
+          <Rise className="mt-8 flex flex-wrap gap-3" y={14} delay={0.18} duration={0.55}>
             <Link to="/products" className="btn btn-primary btn-lg">
               See the range
               <Icon name="arrow" />
@@ -86,13 +71,14 @@ function Hero() {
               <Icon name="whatsapp" />
               WhatsApp us
             </a>
-          </motion.div>
+          </Rise>
 
-          <motion.dl
+          <Rise
+            as="dl"
             className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 pt-8 border-t border-rule max-w-lg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.26 }}
+            y={0}
+            delay={0.26}
+            duration={0.6}
           >
             {FACTS.map((f) => (
               <div key={f.k}>
@@ -102,15 +88,10 @@ function Hero() {
                 <dd className="mt-1 font-mono text-[0.88rem] text-ink">{f.v}</dd>
               </div>
             ))}
-          </motion.dl>
+          </Rise>
         </div>
 
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease }}
-        >
+        <Rise className="relative" y={18} delay={0.1} duration={0.7}>
           <Photo
             photo={PHOTOS.heroEngine}
             ratio="landscape"
@@ -140,7 +121,7 @@ function Hero() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Rise>
       </div>
     </section>
   );
